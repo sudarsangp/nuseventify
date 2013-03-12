@@ -1,0 +1,154 @@
+  <html>
+    <head>
+      <title>NUS Eventify</title>
+      
+      <!--Meta tags go here -->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      
+    	<!--Importing Twitter Bootstrap -->
+    	<link rel="stylesheet" type="text/css" href="bootstrap.css" />
+  	<link rel="stylesheet" type="text/css" href="bootstrap-responsive.css" />
+     </head>
+
+    
+
+    <body>
+       <!-- NAVBAR
+      ================================================== -->
+      <div class="container">
+      <div class="navbar-wrapper">
+        <!-- Wrap the .navbar in .container to center it within the absolutely positioned parent. -->
+        <div class="container">
+
+          <div class="navbar navbar-inverse">
+            <div class="navbar-inner">
+              <!-- Responsive Navbar Part 1: Button for triggering responsive navbar (not covered in tutorial). Include responsive CSS to utilize. -->
+              <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="brand" href="#">NUS Eventify </a>
+              <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed withing .navbar-collapse.collapse. -->
+              <div class="nav-collapse collapse">
+                <ul class="nav">
+                  <li class="active"><a href="#">Home</a></li>
+                  <li><a href="#about">Submit an event</a></li>
+                  <li><a href="#contact">Search for events</a></li>
+               
+                </ul>
+              </div><!--/.nav-collapse -->
+            </div><!-- /.navbar-inner -->
+          </div><!-- /.navbar -->
+
+        </div> <!-- /.container -->
+      </div><!-- /.navbar-wrapper -->
+     
+    <div class = "hero-unit">
+      
+        
+
+        <form id="SubmitEvent" >
+        <fieldset>
+        <legend>Create an Event</legend>
+        <label><b>Name</b></label>
+        <input type="text"  name = "nameofevent">
+        
+        <label><b>Venue</b></label>
+        <input type="text" name="venue">
+        
+        <label><b>Date</b></label>
+        <input type="text"  name= "date">
+        
+        <label><b>Event Description</b></label>
+        <input type="text"  name="eventdescription">
+        
+        <label><b>Image URL</b></label>
+        <input type="text"  name="URL">
+        
+        <label><b>Contact</b></label>
+        <input type="text"  name="contactno">
+        
+        <label><b>Organizer Email ID</b></label>
+        <input type="text"  name="mailid">
+        
+        <label><b>Tags</b></label>
+        <input type="text"  name="eventtags">
+        
+        <div></div>
+        <button type="submit" class="btn" name = "submit" value = "submit">Submit</button>
+        </fieldset>
+        </form>
+       
+  
+  
+  </div>
+  </div>
+
+
+  
+
+
+
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+<script type="text/javascript">
+$('document').ready(function(){
+  $("#SubmitEvent").submit(function(){
+    if(validateForm() == true )
+      {
+        alert("workgin");
+        $("#SubmitEvent").action="backEnd.php";
+      }
+      else(validateForm() == false)
+      {
+        alert("Please Fill up the fields marked *");
+      }
+    });
+
+});
+  
+
+  function validateForm()
+  {
+  var name = $('input[name=nameofevent]').val();
+  var venue =$('input[name=venue]').val();
+  var date = $('input[name=date]').val();
+  var eventdescription = $('input[name=eventdescription]').val();
+  var organizer = $('input[name=organizer]').val();
+  var tags = $('input[name=eventtags]').val();
+  var email = $('input[name=email]').val();
+
+
+  if (name.length==0 || tags.length==0 || date.length==0 || organizer.length==0 || venue.length == 0 || mail.length == 0 )
+    {
+    alert("Please complete required fields");
+    return false;
+    }
+  else
+  {
+    ValidateEmail(email);
+  }
+
+  }
+
+
+  function ValidateEmail(email)  
+  {  
+  var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;  
+  if(uemail.value.match(mailformat))  
+  {  
+  return true;  
+  }  
+  else  
+  {  
+  alert("You have entered an invalid email address!");  
+  uemail.focus();  
+  return false;  
+  }  
+  }  
+  </script>
+  </body>
+  </html>
